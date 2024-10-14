@@ -1,0 +1,42 @@
+# the account name is only used to describe from which account the run was started from
+# this is more descriptive than the hostname as it also specifies who ran it
+account_name: benchmark # iml_<ACCOUNT_NAME>
+
+# path to store logs/checkpoints
+output_path: ??? # /system/user/publicwork/<CHANGEME>/save_<CHANGEME>
+# path where pretrained models are stored
+# model_path: /system/user/publicwork/<CHANGEME>/models
+
+# global datasets
+global_dataset_paths:
+  cifar10: /publicdata/CIFAR10
+
+# OPTIONAL: path to (fast) local storage
+# local_dataset_path: /loca/
+
+# OPTIONAL
+# defines which directory to load the data from
+# - not defined or null -> each dataset defines the default value (e.g. ImageFolder -> local)
+# - "global" -> load samples from global_dataset_path
+# - "local" -> load samples from local_dataset_path
+#data_source_modes:
+#  imagenet1k: local
+
+# wandb
+# disabled -> don't use wandb
+# offline -> use wandb in offline mode
+# online -> use wandb in online mode
+default_wandb_mode: online
+
+# DDP
+master_port: 55555
+
+# cudnn
+default_cudnn_benchmark: true
+default_cudnn_deterministic: false
+# enable/disable cuda profiling
+# - enabled: after every cuda operation to be profiled a torch.cuda.synchronize and dist.barrier is appended -> slower
+# - disabled: cuda operations are not profiled
+default_cuda_profiling: false
+# sync batchnorm
+default_sync_batchnorm: true

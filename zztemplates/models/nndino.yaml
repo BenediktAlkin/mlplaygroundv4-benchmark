@@ -1,0 +1,11 @@
+debug:
+  queue_size: 2048
+  proj_hidden_dim: 16
+  bottleneck_dim: 8
+  output_dim: 128
+
+base:
+  queue_size: 65536
+  proj_hidden_dim: 2048
+  bottleneck_dim: 256
+  output_dim: 65536

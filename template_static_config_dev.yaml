@@ -1,0 +1,33 @@
+# the account name is only used to describe from which account the run was started from
+# this is more descriptive than the hostname as it also specifies who ran it
+account_name: dev
+
+# path to store logs/checkpoints
+output_path: ~/Documents/save_mlp
+# path where pretrained models are stored
+model_path: ~/Documents/models
+
+# global datasets (
+global_dataset_paths:
+  # classification
+  cifar10: ~/Documents/data/cifar10
+
+# OPTIONAL: path to (fast) local storage
+# local_dataset_path: ~/Documents/data_local
+
+# wandb
+# disabled -> don't use wandb
+# offline -> use wandb in offline mode
+# online -> use wandb in online mode
+default_wandb_mode: disabled
+
+# DDP
+master_port: 55555
+
+# cudnn benchmark
+default_cudnn_benchmark: false
+default_cudnn_deterministic: true
+# cuda profiling
+default_cuda_profiling: true
+# sync batchnorm
+default_sync_batchnorm: true

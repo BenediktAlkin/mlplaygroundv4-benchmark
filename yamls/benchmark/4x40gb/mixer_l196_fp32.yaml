@@ -1,0 +1,36 @@
+wandb: benchmark
+stage_name: stage1
+name: dummy-mixer-l196
+vars:
+  optim:
+    kind: adamw
+    lr: 1.5e-4
+    betas: [ 0.9, 0.95 ]
+    weight_decay: 0.05
+
+datasets:
+  train:
+    kind: dummy_dataset
+    size: 1281167
+    x_shape: [ 196, 128 ]
+    num_classes: 1000
+
+model:
+  kind: benchmark.mixer
+  depth: 24
+  dim: 1024
+  optim: ${vars.optim}
+
+trainer:
+  kind: classification_trainer
+  precision: float32
+  max_updates: 600
+  effective_batch_size: 384
+  log_every_n_epochs: 1
+  add_default_callbacks: false
+  add_trainer_callbacks: false
+  callbacks:
+    - kind: train_time_callback
+      every_n_updates: 50
+    - kind: progress_callback
+      every_n_updates: 50
