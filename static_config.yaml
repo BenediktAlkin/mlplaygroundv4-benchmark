@@ -26,7 +26,8 @@ global_dataset_paths:
 # disabled -> don't use wandb
 # offline -> use wandb in offline mode
 # online -> use wandb in online mode
-default_wandb_mode: online
+default_wandb_mode: disabled
+#default_wandb_mode: online
 
 # DDP
 master_port: 55555
