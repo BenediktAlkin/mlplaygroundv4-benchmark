@@ -1,0 +1,35 @@
+wandb: benchmark
+stage_name: stage1
+name: dummy-resnet50-fp32
+vars:
+  optim:
+    kind: sgd
+    lr: 0.1
+    momentum: 0.9
+    weight_decay: 1.0e-6
+
+datasets:
+  train:
+    kind: dummy_dataset
+    size: 1281167
+    x_shape: [ 3, 224, 224 ]
+    num_classes: 1000
+
+model:
+  kind: benchmark.resnet
+  version: resnet50
+  optim: ${vars.optim}
+
+trainer:
+  kind: classification_trainer
+  precision: float32
+  max_updates: 1000
+  effective_batch_size: 2048
+  log_every_n_epochs: 1
+  add_default_callbacks: false
+  add_trainer_callbacks: false
+  callbacks:
+    - kind: train_time_callback
+      every_n_updates: 50
+    - kind: progress_callback
+      every_n_updates: 50
