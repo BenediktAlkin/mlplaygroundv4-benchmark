@@ -88,6 +88,7 @@ def run_single_or_multiprocess(accelerator, devices, main_single, master_port, m
         logging.info(f"running single process training")
         if accelerator == "gpu":
             os.environ["CUDA_VISIBLE_DEVICES"] = device_ids[0]
+            os.environ["ROCR_VISIBLE_DEVICES"] = device_ids[0]
             _check_single_device_visible()
         _log_device_info(accelerator, device_ids)
         device = _accelerator_to_device(accelerator)
