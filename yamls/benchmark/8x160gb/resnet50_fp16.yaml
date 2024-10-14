@@ -25,7 +25,7 @@ trainer:
   precision: bfloat16
   backup_precision: float16
   max_updates: 1000
-  effective_batch_size: 8192
+  effective_batch_size: 16384
   log_every_n_epochs: 1
   add_default_callbacks: false
   add_trainer_callbacks: false
