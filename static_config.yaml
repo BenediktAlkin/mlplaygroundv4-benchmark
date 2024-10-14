@@ -3,7 +3,7 @@
 account_name: benchmark # iml_<ACCOUNT_NAME>
 
 # path to store logs/checkpoints
-output_path: ??? # /system/user/publicwork/<CHANGEME>/save_<CHANGEME>
+output_path: ~/save # /system/user/publicwork/<CHANGEME>/save_<CHANGEME>
 # path where pretrained models are stored
 # model_path: /system/user/publicwork/<CHANGEME>/models
 
